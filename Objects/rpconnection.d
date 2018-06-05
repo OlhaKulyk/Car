@@ -1,7 +1,5 @@
 .\objects\rpconnection.o: User\RuspberryPiConnection\RPConnection.c
 .\objects\rpconnection.o: User\RuspberryPiConnection\RPConnection.h
-.\objects\rpconnection.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
-.\objects\rpconnection.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\rpconnection.o: C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc\stm32f10x_gpio.h
 .\objects\rpconnection.o: C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include\stm32f10x.h
 .\objects\rpconnection.o: .\RTE\_Target_1\RTE_Components.h
@@ -36,3 +34,9 @@
 .\objects\rpconnection.o: C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc\stm32f10x_usart.h
 .\objects\rpconnection.o: C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc\stm32f10x_wwdg.h
 .\objects\rpconnection.o: C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc\misc.h
+.\objects\rpconnection.o: .\User\ProximitySensors\ProximitySensors.h
+.\objects\rpconnection.o: .\Driver\Sharp\Sharp.h
+.\objects\rpconnection.o: .\Driver\VL53L0X\VL53L0X_Initialize.h
+.\objects\rpconnection.o: .\User\Settings.h
+.\objects\rpconnection.o: .\Driver\VL53L0X\VL53L0X.h
+.\objects\rpconnection.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h

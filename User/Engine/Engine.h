@@ -10,7 +10,6 @@
 void OptronInit(void);
 void EngineInit(void);
 
-uint8_t GetSpeed(void);
 void ChangeSpeed(signed int speedNeed);
 
 #endif /* ENGINE_H */

@@ -33,10 +33,6 @@
 .\objects\main.o: C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc\stm32f10x_wwdg.h
 .\objects\main.o: C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\StdPeriph_Driver\inc\misc.h
 .\objects\main.o: User\Settings.h
-.\objects\main.o: .\User\UART_Debug\USART_Debug.h
-.\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\main.o: .\User\RuspberryPiConnection\RPConnection.h
-.\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
 .\objects\main.o: .\User\ProximitySensors\ProximitySensors.h
 .\objects\main.o: .\Driver\Sharp\Sharp.h
 .\objects\main.o: .\Driver\VL53L0X\VL53L0X_Initialize.h
@@ -44,4 +40,4 @@
 .\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\objects\main.o: .\User\Engine\Engine.h
 .\objects\main.o: .\User\Servo\Servo.h
-.\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\main.o: .\User\RuspberryPiConnection\RPConnection.h

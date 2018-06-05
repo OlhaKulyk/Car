@@ -81,50 +81,12 @@ void EngineInit()
   TIM_Cmd(TIM4, ENABLE);
 }
 
-uint8_t GetSpeed()
-{
-	return speedNow;
-}
-/*static uint8_t speedToPWM(uint16_t Speed)
-{
-	Speed *=2;
-	   if(Speed >= 25 && Speed < 100)
-					return 36;
-		 else if(Speed >= 100 && Speed <= 200)
-					return 38;
-		 else if(Speed >= 200 && Speed < 300)
-					return 40;
-		 else if(Speed >= 300 && Speed < 450)
-					return 42;
-		 else if(Speed >= 450 && Speed < 550)
-					return 44;
-		 else if(Speed >= 550 && Speed < 700)
-					return 46;
-		 else if(Speed >= 700 && Speed < 820)
-					return 48;
-		 else if(Speed >= 820 && Speed < 920)
-					return 50;
-		 else if(Speed >= 920 && Speed < 1020)
-					return 52;
-		 else if(Speed >= 1020 && Speed < 1100)
-					return 54;
-		 else if(Speed >= 1100 && Speed < 1150)
-					return 56;
-		 else if(Speed >= 1150 && Speed < 1200)
-					return 58;
-		 else if(Speed >= 1200 && Speed < 1300)
-					return 52;
-		 else return 34;
-}*/
-
 // sm/s
 void ChangeSpeed(signed int speedNeed)
 {
 	static uint16_t  Speed = 0;
 	if (speedNeed >= 0){
 		Speed += EnginePID(speedNow/0.45, speedNeed, Engine_Kp, Engine_Ki, Engine_Kd);
-		//size +=sprintf(buffer, "%f: ", Speed/0.45);
-		//Usart_Transmit_string("SPEED", sizeof("SPEED"));
 		if(Speed+30 < 0)
 			Speed=0;
 		else if(Speed+30 > 60)
@@ -132,20 +94,15 @@ void ChangeSpeed(signed int speedNeed)
 		
 		TIM_SetCompare3(TIM4,(uint16_t)Speed+30);
 
-		//Usart_Transmit_uint16_t((uint16_t)Speed);
-
 	} else{
-		Speed = EnginePID(speedNow/0.45, speedNeed, Engine_Kp, Engine_Ki, Engine_Kd);
-		//size +=sprintf(buffer, "%f: ", Speed/0.45);
-		//Usart_Transmit_string("SPEED", sizeof("SPEED"));
+		TIM_SetCompare4(TIM4,0);
+		Speed += EnginePID(speedNow/0.45, abs(speedNeed), Engine_Kp, Engine_Ki, Engine_Kd);
 		if(Speed+30 < 0)
 			Speed=0;
 		else if(Speed+30 > 60)
 			Speed = 30;
 		
 		TIM_SetCompare4(TIM4,(uint16_t)Speed+30);
-		//Usart_Transmit_uint16_t((uint16_t)Speed+30);
-		//Usart_Transmit_double(Speed/0.45);
 	}
 	speedNow = 0;
 }

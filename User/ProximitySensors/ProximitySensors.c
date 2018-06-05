@@ -1,5 +1,7 @@
 #include "ProximitySensors.h"
 
+static uint8_t proximitySensors[5];
+
 void ProximitySensors_Init()
 {
 	InitSharp();
@@ -32,7 +34,7 @@ void ProximitySensors_Init()
 	VL53L0X_startContinuous(0);
 }
 
-void ProximitySensors_Read(uint8_t* proximitySensors)
+void ProximitySensors_Read()
 {
 	readSharp(proximitySensors);
 	*(proximitySensors+1) = Read_from_One((uint8_t)0x29)/10;
@@ -41,4 +43,11 @@ void ProximitySensors_Read(uint8_t* proximitySensors)
 	*(proximitySensors+3) = Read_from_One((uint8_t)0x52)/10;
 		if(*(proximitySensors+3) > 150)
 		*(proximitySensors+3) = 150;	
+}
+
+uint8_t GetSensor_Data(uint8_t sensor)
+{
+	if(sensor <= 4)
+		return proximitySensors[sensor];
+	return 0;
 }

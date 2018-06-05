@@ -42,20 +42,19 @@ void ServoInit()
 	TIM_SetCompare4(TIM1, 75);
 }
 
-// pwm 0 - 100
-// angle -90 - +90
+// pwm 63 - 87
+// angle -12 - +12
 signed int GetAngle()
 {
-	return (((uint8_t)TIM_GetCapture4(TIM1)-25)*1.8)-90;
+	return TIM_GetCapture4(TIM1)-75;
 }
 
 static uint8_t AngletoPWM(uint8_t Angle)
 {
-	return ((Angle+90)/1.8)+25;
+	return (uint8_t)Angle+75;
 }
 
 void ChangeAngle(signed int angle)
 {
-	uint8_t PWM = ServoPID((uint8_t)TIM_GetCapture4(TIM1), AngletoPWM(angle), Servo_Kp, Servo_Ki, Servo_Kd);
-	TIM_SetCompare4(TIM1, PWM);
+	TIM_SetCompare4(TIM1, AngletoPWM(angle));
 }
